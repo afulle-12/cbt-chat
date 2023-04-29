@@ -9,7 +9,7 @@ bot = ChatBot('CBTBot')
 trainer = ChatterBotCorpusTrainer(bot)
 trainer.train("chatterbot.corpus.english")
 
-# Define a list of negative thought patterns
+# Define list of negative thought patterns
 negative_thoughts = [
     'All-or-nothing thinking',
     'Overgeneralization',

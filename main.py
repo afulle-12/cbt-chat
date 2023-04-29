@@ -15,7 +15,7 @@ cbt_techniques = {
     'Exposure therapy': 'Gradually exposing oneself to feared situations or stimuli'
 }
 
-# Define a list of negative thought patterns
+# Define list of negative thought patterns
 negative_thoughts = [
     'All-or-nothing thinking',
     'Overgeneralization',

@@ -25,10 +25,10 @@ while True:
     try:
         user_input = input()
 
-        # Check if the user's message contains a CBT technique keyword
+        # Check if the user's message contains a CBT keyword
         match = technique_pattern.search(user_input)
         if match:
-            # Identify the CBT technique keyword in the user's message and provide a description of the technique
+            # Identify CBT keyword and describe technique
             technique_keyword = match.group(2).title()
             technique_description = cbt_techniques.get(technique_keyword)
             if technique_description:
@@ -40,6 +40,5 @@ while True:
             bot_response = bot.get_response(user_input)
             print(bot_response)
 
-    # Press ctrl-c or ctrl-d on the keyboard to exit
     except (KeyboardInterrupt, EOFError, SystemExit):
         break

@@ -2,14 +2,11 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import re
 
-# Create a new chatbot
 bot = ChatBot('CBTBot')
 
-# Train the bot using the English corpus
 trainer = ChatterBotCorpusTrainer(bot)
 trainer.train("chatterbot.corpus.english")
 
-# Define a dictionary of CBT techniques and their descriptions
 cbt_techniques = {
     'Cognitive restructuring': 'Examining and challenging negative thoughts',
     'Behavioral activation': 'Engaging in activities that give a sense of pleasure or accomplishment',
@@ -39,7 +36,6 @@ while True:
             else:
                 print('I\'m sorry, I don\'t know much about that technique. Please try another one.')
 
-        # If the user's message does not contain a CBT technique keyword, get a response from the bot
         else:
             bot_response = bot.get_response(user_input)
             print(bot_response)

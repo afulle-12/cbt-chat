@@ -1,19 +1,13 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-import re
+import random
 
+# Create a new chatbot
 bot = ChatBot('CBTBot')
 
+# Train the bot using the English corpus
 trainer = ChatterBotCorpusTrainer(bot)
 trainer.train("chatterbot.corpus.english")
-
-cbt_techniques = {
-    'Cognitive restructuring': 'Examining and challenging negative thoughts',
-    'Behavioral activation': 'Engaging in activities that give a sense of pleasure or accomplishment',
-    'Problem-solving skills training': 'Identifying problems and coming up with practical solutions',
-    'Relaxation techniques': 'Engaging in relaxation techniques such as deep breathing, progressive muscle relaxation, or visualization',
-    'Exposure therapy': 'Gradually exposing oneself to feared situations or stimuli'
-}
 
 # Define a list of negative thought patterns
 negative_thoughts = [
@@ -78,38 +72,5 @@ while True:
             print(bot_response)
 
     # Press ctrl-c or ctrl-d on the keyboard to exit
-    except (KeyboardInterrupt, EOFError, SystemExit):
-        break
-
-
-# Note that everything below this comment is from the original code ... all of the above is more in line with the intended function. Ideally, we should find a way to merge the two.
-
-# Define a regular expression pattern for matching messages that contain a CBT technique keyword
-technique_pattern = re.compile(r'(.*)(cognitive restructuring|behavioral activation|problem-solving|relaxation|exposure)(.*)', re.IGNORECASE)
-
-# Start the conversation with the bot
-print('Type something to begin...')
-
-#This is very basic: what we need to change here is the basic function
-#We don't want the user to prompt specific techniques but rather journal organically and have keywords signal the bot to teach CBT as needed 
-while True:
-    try:
-        user_input = input()
-
-        # Check if the user's message contains a CBT keyword
-        match = technique_pattern.search(user_input)
-        if match:
-            # Identify CBT keyword and describe technique
-            technique_keyword = match.group(2).title()
-            technique_description = cbt_techniques.get(technique_keyword)
-            if technique_description:
-                print('{} involves {}'.format(technique_keyword, technique_description))
-            else:
-                print('I\'m sorry, I don\'t know much about that technique. Please try another one.')
-
-        else:
-            bot_response = bot.get_response(user_input)
-            print(bot_response)
-
     except (KeyboardInterrupt, EOFError, SystemExit):
         break

@@ -21,6 +21,8 @@ technique_pattern = re.compile(r'(.*)(cognitive restructuring|behavioral activat
 # Start the conversation with the bot
 print('Type something to begin...')
 
+#This is very basic: what we need to change here is the basic function
+#We don't want the user to prompt specific techniques but rather journal organically and have keywords signal the bot to teach CBT as needed 
 while True:
     try:
         user_input = input()
